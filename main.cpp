@@ -10,7 +10,7 @@ public:
 	static char Delimiter;
 	static int cellen;
 	int get_cellen() const {
-		int len;
+		int len=0;
 		for( const_iterator cell=begin(); cell!=end(); cell++)
 			len = max(len,(int)cell->length());
 		return len;
@@ -96,11 +96,11 @@ int main( int argc, char * argv[] ){
 	string line;
 	while( getline(istr,line) ){
 		string word;
+		//cout << line <<endl;
 		stringstream wstr(line);
 		Row_t row;
-		while( getline(wstr,word,',') ){
+		while( getline(wstr,word,',') )
 			row.push_back(word);
-		}
 		if( row.empty() )
 			continue;
 		Page.push_back(row);\
